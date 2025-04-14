@@ -23,6 +23,7 @@ DROP DATABASE universe;
 
 CREATE DATABASE universe WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
 
+
 ALTER DATABASE universe OWNER TO freecodecamp;
 
 \connect universe
@@ -99,6 +100,7 @@ ALTER TABLE public.galaxy OWNER TO freecodecamp;
 
 --
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
 
 CREATE SEQUENCE public.galaxy_galaxy_id_seq
     AS integer
@@ -151,6 +153,7 @@ ALTER TABLE public.moon_moon_id_seq OWNER TO freecodecamp;
 --
 -- Name: moon_moon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
+
 ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 
 
@@ -252,6 +255,7 @@ ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('publi
 
 ALTER TABLE ONLY public.moon ALTER COLUMN moon_id SET DEFAULT nextval('public.moon_moon_id_seq'::regclass);
 
+
 --
 -- Name: planet planet_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
@@ -274,6 +278,7 @@ INSERT INTO public.astronomer VALUES (1, 'Galileo Galilei', 'Italy', false, 1564
 INSERT INTO public.astronomer VALUES (2, 'Johannes Kepler', 'Germany', false, 1571, 'Laws of planetary motion');
 INSERT INTO public.astronomer VALUES (3, 'Nicolaus Copern', 'Poland', false, 1473, 'Heliocentric model of the solar system');
 INSERT INTO public.astronomer VALUES (4, 'Isaac Newton', 'England', false, 1643, 'Law of universal gravitation');
+
 
 --
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
@@ -368,6 +373,7 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
 --
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
+
 SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
 
 
@@ -391,6 +397,7 @@ SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
 
 ALTER TABLE ONLY public.astronomer
     ADD CONSTRAINT astronomer_name UNIQUE (name);
+
 
 --
 -- Name: astronomer astronomer_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
